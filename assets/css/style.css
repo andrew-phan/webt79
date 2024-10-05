@@ -343,7 +343,7 @@ body {
   text-align: center;
   color: #fff;
   margin-right: 6px;
-  background: url("../image/Desktop/header/icon-lang.png") no-repeat;
+  background: url("../../public/image/Desktop/header/icon-lang.png") no-repeat;
   background-size: 26px 182px;
 }
 .header .header01 .dropdown-lang .tg-link .icon--vi {
@@ -1446,14 +1446,6 @@ body {
 }
 .form-login .content .el-dialog__body .login-content .right-content form {
   margin-top: 20px;
-  /* The container */
-  /* Hide the browser's default checkbox */
-  /* Create a custom checkbox */
-  /* On mouse-over, add a grey background color */
-  /* When the checkbox is checked, add a blue background */
-  /* Create the checkmark/indicator (hidden when not checked) */
-  /* Show the checkmark when checked */
-  /* Style the checkmark/indicator */
 }
 .form-login .content .el-dialog__body .login-content .right-content form .form-item {
   position: relative;
@@ -1572,4 +1564,4 @@ body {
 }
 .form-login .content .el-dialog__body .login-content .right-content form .loginVersion3 p:last-child {
   border-left: 1px solid #c1c1c1;
-}/*# sourceMappingURL=style.css.map */
+}

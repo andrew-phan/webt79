@@ -285,35 +285,36 @@
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-22,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-222 {
   background-size: 100% !important;
-  background: url(../image/home/dice-4.png) 50%;
+  background: url(../../public/image/home/dice-4.png) 50%;
+
 }
 
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-6,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-66,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-666 {
   background-size: 100% !important;
-  background: url(../image/home/dice-6.png) 50%;
+  background: url(../../public/image/home/dice-6.png) 50%;
 }
 
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-5,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-55,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-555 {
   background-size: 100% !important;
-  background: url(../image/home/dice-5.png) 50%;
+  background: url(../../public/image/home/dice-5.png) 50%;
 }
 
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-1,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-11,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-111 {
   background-size: 100% !important;
-  background: url(../image/home/dice-4.png) 50%;
+  background: url(../../public/image/home/dice-4.png) 50%;
 }
 
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-4,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-44,
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-444 {
   background-size: 100% !important;
-  background: url(../image/home/dice-4.png) 50%;
+  background: url(../../public/image/home/dice-4.png) 50%;
 }
 
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .betting {
@@ -359,7 +360,7 @@
 }
 
 .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .open-numbers .ball {
-  background: url(../image/home/ball.png) no-repeat 50%/120%;
+  background: url(../../public/image/home/ball.png) no-repeat 50%/120%;
   border-radius: 50%;
   color: #292b31;
   display: flex;
@@ -761,5 +762,157 @@
     height: 28px;
   }
 }
+.header .header01 .dropdown-lang .user-menu {
+  margin-top: 10px;
+  position: relative;
+  right: 0;
+  z-index: 10;
+  padding: 10px 0;
+  background-color: #fff;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  display: none;
+}
 
-/*# sourceMappingURL=top.css.map */
+.header .header01 .dropdown-lang .user-menu:after {
+  content: "";
+  left: 52px;
+  top: -4px;
+  display: inline-block;
+  transition: 0.3s;
+  width: 0;
+  right: 3px;
+  height: 0;
+  border: 5px solid #fff;
+  border-top: 0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: absolute;
+}
+.header .header01 .dropdown-lang .user-menu p {
+  line-height: 36px;
+  padding: 0 20px;
+  margin: 0;
+  font-size: 14px;
+  color: #606266;
+  cursor: pointer;
+  outline: 0;
+}
+.header .header01 .dropdown-lang .user-menu p:hover {
+  background-color: #ecf5ff;
+  color: #66b1ff;
+}
+.header .header01 .topbar-ri {
+  display: flex;
+  align-items: center;
+}
+.header .header01 .right .dropdown .user-menu {
+  margin-top: 10px;
+  right: 0;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  width: 200px;
+  position: absolute;
+  right: 0;
+  /* display: none; */
+}
+
+.header .header01 .right .dropdown .user-menu:after {
+  content: "";
+  right: 32px;
+  top: -4px;
+  display: inline-block;
+  transition: 0.3s;
+  width: 0;
+  height: 0;
+  border: 5px solid #fff;
+  border-top: 0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: absolute;
+}
+.header .header01 .right .dropdown .user-menu ul li a,
+.header .header01 .right .dropdown .user-menu ul li .wrap {
+  color: #5a5e68;
+  transition: all 0.3s;
+  padding: 10px 10px;
+  /* display: block; */
+  font-size: 16px;
+  color: #5a5e68;
+  cursor: pointer;
+}
+.header .header01 .right .dropdown .user-menu ul li a i,
+.header .header01 .right .dropdown .user-menu ul li .wrap i {
+  font-family: "Font Awesome 6 Free" !important;
+  color: #959aa5;
+}
+.header .header01 .right .dropdown .user-menu ul li a:hover,
+.header .header01 .right .dropdown .user-menu ul li .wrap:hover {
+  background-color: #f8f9fb;
+  opacity: 1;
+}
+.header .header01 .right .dropdown .user-menu ul li.line {
+  border-bottom: 1px solid #edf0f4;
+}
+.header .header01 .right .dropdown .user-menu ul li .money {
+  margin-left: 24px;
+  color: #4b88d6;
+  font-size: 20px;
+}
+.register .content__body .el-dialog__body .form-content .form-item .dropdown .user-menu {
+  margin-top: 10px;
+  background-color: #fff;
+  max-height: 274px;
+  overflow: auto;
+  border: 1px solid #e4e7ed;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+.register .content__body .el-dialog__body .form-content .form-item .dropdown .user-menu p {
+  font-size: 14px;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #606266;
+  height: 34px;
+  line-height: 34px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.register .content__body .el-dialog__body .form-content .form-item .dropdown .user-menu p:hover {
+  background-color: #f5f7fa;
+}
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+    transition: all 0.3s ease;
+}
+
+.fade-slide-enter,
+.fade-slide-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Style the dropdown */
+.user-menu {
+    margin-top: 10px;
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    padding: 10px 0;
+    background-color: #fff;
+    border: 1px solid #ebeef5;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.swiper-slide .game {
+  margin-bottom: 20px;
+}

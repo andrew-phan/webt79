@@ -1,6 +1,7 @@
 <template>
     <main class="main">
         <Banner />
+        <!--check-->
         <MenuMobile />
         <div class="wrap-home">
             <div class="home">

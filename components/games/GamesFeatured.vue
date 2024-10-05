@@ -1,14 +1,14 @@
 <template>
   <div class="feature-game-wp">
-    <div class="section-title">Trò chơi nổi bật</div>
+    <div class="section-title">Game nổi bật</div>
     <div class="section-content">
       <div class="third-party-wp">
         <div class="swiper-game-list">
-          <Carousel :items-to-show="5" :wrap-around="true">
-            <Slide v-for="game in featuredGames" :key="game.id">
+          <Carousel :items-to-show="itemsToShow" :wrap-around="true" :transition="500" :autoplay="3000"  :pauseAutoplayOnHover="true">
+            <Slide v-for="(gameGroup, index) in groupedGames" :key="index">
               <div class="swiper-slide">
-                <div class="game">
-                  <div class="ani-container">
+                <div v-for="game in gameGroup" :key="game.id" class="game">
+                  <div class="ani-container" style="display: none; text-align: left;">
                     <canvas width="260" height="260" :style="getCanvasStyle(game)"></canvas>
                   </div>
                   <div class="el-image">
@@ -23,6 +23,7 @@
                 </div>
               </div>
             </Slide>
+
             <template #addons>
               <Navigation />
             </template>
@@ -34,11 +35,30 @@
 </template>
 
 <script setup lang="ts">
-import type { Game } from '~/types/game'
+import { computed } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+import type { Game } from '@/types/game'
 
-// TODO: fix css in this component and carousel
-
+const { width } = useWindowSize()
 const { featuredGames } = useGames()
+
+const itemsToShow = computed(() => {
+  if ( 768 < width.value && width.value < 1024 ) {
+    return 5;
+  } else if (width.value <= 768 ) {
+    return 3;
+  } else {
+    return 7;
+  }
+})
+
+const groupedGames = computed(() => {
+  const groups = []
+  for (let i = 0; i < featuredGames.value.length; i += 2) {
+    groups.push(featuredGames.value.slice(i, i + 2))
+  }
+  return groups
+})
 
 const getCanvasStyle = (game: Game) => {
   return {
@@ -50,22 +70,37 @@ const getCanvasStyle = (game: Game) => {
 
 <style scoped>
 :deep(.carousel__slide) {
-  padding: 5px;
+  padding: 10px;
 }
 
 :deep(.carousel__prev),
 :deep(.carousel__next) {
-  background-color: hsla(0,0%,94.1%,.6);
+  background: hsla(0, 0%, 94.1%, 0.6);
   border-radius: 50%;
+  border: none !important;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+  color: rgba(144, 148, 163, 0.6);
   width: 50px;
   height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 :deep(.carousel__prev) {
-  left: -25px;
+  left: -90px;
 }
 
 :deep(.carousel__next) {
-  right: -25px;
+  right: -90px;
 }
+
+:deep(.carousel__prev:hover),
+:deep(.carousel__next:hover) {
+  background: hsla(0, 0%, 94.1%, 0.8);
+}
+
+:deep(.carousel__icon) {
+  font-size: 16px;
+}
+
 </style>

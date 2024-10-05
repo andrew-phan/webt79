@@ -1,35 +1,37 @@
 <template>
   <div class="mv">
-    <Carousel :items-to-show="1" :wrap-around="true" :autoplay="5000">
-      <Slide v-for="(slide, index) in slides" :key="index">
-        <a :href="slide.link">
-          <img class="pc" :src="slide.pcImage" alt="">
-          <img class="sp" :src="slide.spImage" alt="">
-        </a>
-      </Slide>
+    <div v-if="isLoading">Đang tải banner...</div>
+    <div v-else-if="error">{{ error }}</div>
+    <template v-else>
+      <Carousel v-if="data && data.length" :items-to-show="1" :wrap-around="true" :autoplay="3000" :itemsToScroll="1" :pauseAutoplayOnHover="true">
+        <Slide v-for="(slide, index) in data" :key="index">
+          <a :href="slide.jump_link" :target="slide.is_new_window ? '_blank' : '_self'">
+            <img :src="slide.url" :alt="slide.title">
+          </a>
+        </Slide>
 
-      <template #addons>
-        <Navigation />
-      </template>
-    </Carousel>
-    <BannerMarquee />
+        <template #addons>
+          <Navigation />
+        </template>
+      </Carousel>
+    </template>
+    <ClientOnly>
+      <BannerMarquee />
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
+import { useAsyncData } from '#app'
+import useBanners from '@/composables/useBanners'
 
-const slides = [
-  {
-    link: '#',
-    pcImage: '/image/Desktop/home/banner-home.jpg',
-    spImage: '/image/Mobile/home/banner_1.jpg'
-  },
-  {
-    link: '#',
-    pcImage: '/image/Desktop/home/banner-home.jpg',
-    spImage: '/image/Mobile/home/banner_2.jpg'
-  }
-]
+const { banners, isMobile, isLoading, error, fetchBanners, checkDevice } = useBanners()
+
+const { data } = await useAsyncData('banners', async () => {
+  checkDevice()
+  await fetchBanners()
+  return banners.value
+})
 </script>
 
 <style scoped>
@@ -91,7 +93,6 @@ const slides = [
   font-size: 16px;
   font-weight: bold;
 }
-
 
 @media screen and (max-width: 1023px) {
   .carousel__prev,

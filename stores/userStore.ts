@@ -29,30 +29,28 @@ export const useAuthStore = defineStore("authStore", () => {
   });
 
   const logged = computed(() => !!token.value);
-  const isLoading = ref(false); // Thêm biến trạng thái loading
+  const isLoading = ref(false);
 
-  // Hàm đăng nhập
   const login = async (credentials: { name: string; password: string }) => {
-    isLoading.value = true; // Bắt đầu loading
+    isLoading.value = true;
     try {
       const response = await useApi("auth/login", {
         method: "POST",
         body: credentials,
       });
-      
       if (response.status === "error") {
         return {
           success: false,
           message: response.message || "Đăng nhập thất bại",
         };
       }
-      
+
       if (response.data && response.data.access_token) {
         token.value = response.data.access_token;
         await fetchUser();
         return { success: true };
       }
-      
+
       return {
         success: false,
         message: "Đăng nhập thất bại",
@@ -61,16 +59,15 @@ export const useAuthStore = defineStore("authStore", () => {
       console.error("Login failed:", error);
       return {
         success: false,
-        message: error.data?.message || "Đã xảy ra lỗi không mong muốn.",
+        message: error.data?.message,
       };
     } finally {
-      isLoading.value = false; // Kết thúc loading
+      isLoading.value = false;
     }
   };
 
-  // Lấy thông tin người dùng
   const fetchUser = async () => {
-    isLoading.value = true; // Bắt đầu loading
+    isLoading.value = true;
     try {
       const data = await useApi("user", {
         headers: {
@@ -84,11 +81,10 @@ export const useAuthStore = defineStore("authStore", () => {
     } catch (error) {
       console.error("Fetching user data failed:", error);
     } finally {
-      isLoading.value = false; // Kết thúc loading
+      isLoading.value = false;
     }
   };
 
-  // Đăng xuất
   const logout = async () => {
     try {
       const response = await useApi("auth/logout", {
@@ -107,5 +103,5 @@ export const useAuthStore = defineStore("authStore", () => {
     }
   };
 
-  return { user, logged, login, fetchUser, logout, token, isLoading }; // Trả về biến loading
+  return { user, logged, login, fetchUser, logout, token, isLoading };
 });

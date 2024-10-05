@@ -34,7 +34,6 @@ export const useNotices = () => {
       await refresh()
       if (noticesData.value?.status === 'success' && Array.isArray(noticesData.value.data)) {
         notices.value = noticesData.value.data
-        console.log('Notices fetched:', notices.value)
       } else {
         console.error('Unexpected API response:', noticesData.value)
       }

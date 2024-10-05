@@ -1,5 +1,4 @@
 <template>
-
     <div id="login" class="js-popup popup form-login sp" v-if="isPopupVisible">
         <div class="bg-overplay js-close" @click="closePopup"></div>
         <div class="content">
@@ -89,7 +88,6 @@ const handleLogin = async () => {
 const handleLogout = async () => {
     try {
         await userStore.logout();
-        console.log('Logged out!');
     } catch (error) {
         console.error('Logout failed!', error);
     }
